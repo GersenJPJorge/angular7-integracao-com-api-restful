@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material";
 
 import { AppComponent } from './app.component';
+import { LoginModule } from './autenticacao';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    LoginModule,
   ],
   providers: [
     ],
