@@ -5,6 +5,7 @@ import { MatButtonModule } from "@angular/material";
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './autenticacao';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,9 @@ import { LoginModule } from './autenticacao';
     BrowserAnimationsModule,
     MatButtonModule,
     LoginModule,
+
+    
+    AppRoutingModule,               // O módulo raiz dever sempre estar em último
   ],
   providers: [
     ],
