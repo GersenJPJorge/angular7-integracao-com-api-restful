@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatInputModule, MatButtonModule, MatListModule, MatTooltipModule, MatIconModule, MatSnackBarModule } from '@angular/material';
+import { LoginService } from './services';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,9 @@ import { MatInputModule, MatButtonModule, MatListModule, MatTooltipModule, MatIc
     MatIconModule,
     MatSnackBarModule,
     FlexLayoutModule,
+  ],
+  providers: [
+    LoginService,
   ],
 })
 export class LoginModule { }
