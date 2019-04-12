@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
-import { LogarComponent } from '../logar.component';
+// import { LogarComponent } from '../logar.component';
+import { Login } from '../../models';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,7 @@ logar(){
           "Dados invalidos", "Erro", { duration: 5000 });
       return;  
   }
-      alert(JSON.stringify(this.form.value));
+    const login: Login = this.form.value;
+     alert('Email: ' + login.email + ', senha: ' + login.senha);
 }  
 }
