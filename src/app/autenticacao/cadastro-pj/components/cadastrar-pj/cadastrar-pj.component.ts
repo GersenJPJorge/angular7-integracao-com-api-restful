@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material'; // para mensagens de erros
 import { Router } from '@angular/router';        // para totemento
+import { CadastroPj } from '../../models';
 
 @Component({
   selector: 'app-cadastrar-pj',
@@ -35,8 +36,10 @@ export class CadastrarPjComponent implements OnInit {
   cadastrarPj() {
   	if (this.form.invalid) {
   		return;
-  	}
-  	alert(JSON.stringify(this.form.value));               // convert objeto json em string
+    }
+    const cadastroPj: CadastroPj = this.form.value;
+//  	alert(JSON.stringify(this.form.value));               // convert objeto json em string
+  	alert(JSON.stringify(cadastroPj));               // convert objeto json em string
   }
 
 }
