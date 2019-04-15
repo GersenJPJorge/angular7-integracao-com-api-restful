@@ -6,7 +6,7 @@ import { MatButtonModule } from "@angular/material";
 import { AppComponent } from './app.component';
 import { LoginModule, LoginRoutingModule, CadastroPjModule, CadastroPjRoutingModule } from './autenticacao';
 import { AppRoutingModule } from './app-routing.module';
-import { CadastroPfModule } from './autenticacao/cadastro-pf';
+import { CadastroPfModule, CadastroPfRoutingModule } from './autenticacao';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { CadastroPfModule } from './autenticacao/cadastro-pf';
     CadastroPjModule,
     CadastroPjRoutingModule,
     CadastroPfModule,
+    CadastroPfRoutingModule,
 
     
     AppRoutingModule,               // O módulo raiz dever sempre estar em último
