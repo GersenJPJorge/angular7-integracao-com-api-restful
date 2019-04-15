@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import {
   MatInputModule,
@@ -19,6 +20,7 @@ import {
 	CadastroPjComponent 
 } from './components';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -31,7 +33,9 @@ import {
     MatListModule,
     MatTooltipModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    SharedModule,
+
   ],
   declarations: [
   	CadastrarPjComponent,
