@@ -7,6 +7,7 @@ import {
   CpfValidator, 
   CnpjValidator 
 } from '../../../../shared/validators';
+import { CadastroPf } from '../../models';
 
 @Component({
   selector: 'app-cadastrar-pf',
@@ -40,8 +41,8 @@ export class CadastrarPfComponent implements OnInit {
   	if (this.form.invalid) {
       return;
     }
-
-    alert(JSON.stringify(this.form.value));
+    const cadastroPf: CadastroPf = this.form.value;
+    alert(JSON.stringify(cadastroPf));
 
   	return false;
   }
