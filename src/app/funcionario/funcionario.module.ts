@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule, MatButtonModule, MatListModule, MatTooltipModule, MatIconModule, MatSnackBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatCardModule } from '@angular/material';
+import { HttpUtilService, LancamentoService } from '../shared';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,10 @@ import { MatInputModule, MatButtonModule, MatListModule, MatTooltipModule, MatIc
     MatSortModule,
     MatCardModule,
     
+  ],
+  providers: [
+    HttpUtilService,
+    LancamentoService,
   ],
 })
 export class FuncionarioModule { }
