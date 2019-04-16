@@ -8,7 +8,7 @@ import { CadastroPfModule, CadastroPfRoutingModule } from './autenticacao';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { FuncionarioModule } from './funcionario';
+import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { FuncionarioModule } from './funcionario';
     CadastroPfModule,
     CadastroPfRoutingModule,
     FuncionarioModule,
+    FuncionarioRoutingModule,
 
     
     AppRoutingModule,               // O módulo raiz dever sempre estar em último
