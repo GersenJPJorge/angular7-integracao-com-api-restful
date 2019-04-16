@@ -8,6 +8,7 @@ import {
   CnpjValidator 
 } from '../../../../shared/validators';
 import { CadastroPf } from '../../models';
+import { CadastrarPfService } from '../../services';
 
 @Component({
   selector: 'app-cadastrar-pf',
@@ -21,7 +22,8 @@ export class CadastrarPfComponent implements OnInit {
   constructor(
   	private fb: FormBuilder,                       // para o formgroup
   	private snackBar: MatSnackBar,                 // para exibir as mensagens
-    private router: Router) { }                    // para o roteamento
+    private router: Router,                        // para o roteamento
+    private cadastrarPfService: CadastrarPfService) { }                  
 
   ngOnInit() {
   	this.gerarForm();
@@ -41,11 +43,24 @@ export class CadastrarPfComponent implements OnInit {
   	if (this.form.invalid) {
       return;
     }
+ 
     const cadastroPf: CadastroPf = this.form.value;
-    alert(JSON.stringify(cadastroPf));
-
+    this.cadastrarPfService.cadastrar(cadastroPf)
+      .subscribe(
+        data => {                                                           // data - em caso de ok
+          const msg: string = "Realize o login para acessar o sistema.";
+          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          this.router.navigate(['/login']);
+        },
+        err => {                                                            // err - em caso de erro
+          let msg: string = "Tente novamente em instantes.";
+          if (err.status == 400) {
+            msg = err.error.errors.join(' ');
+          }
+          this.snackBar.open(msg, "Erro", { duration: 5000 });
+        }
+      );
   	return false;
   }
-
 }
 
