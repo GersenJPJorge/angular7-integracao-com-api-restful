@@ -16,8 +16,8 @@ export class ListagemComponent implements OnInit {
   dataSource: MatTableDataSource<Lancamento>; // MatTableDataSource do tipo lancamento
   colunas: string[] = ['data', 'tipo', 'localizacao']; // é um array de strings
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;                // matSort será uma referencia no html
+  @ViewChild(MatPaginator) paginator: MatPaginator; // paginator é uma referência no html
 
   constructor(
   	private lancamentoService: LancamentoService,
