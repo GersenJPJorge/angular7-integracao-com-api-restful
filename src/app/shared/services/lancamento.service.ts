@@ -38,7 +38,13 @@ export class LancamentoService {
   	  	this.httpUtil.headers()     // posição 2 do token
   	);
   }
+  listarTodosLancamentos(): Observable<any> {
+    return this.http.get(
+        env.baseApiUrl + this.PATH + 
+          this.PATH_TODOS_LANC.replace(
+            '{funcionarioId}', this.httpUtil.obterIdUsuario()),
+        this.httpUtil.headers()
+    );
+  }
 
 }
-
-
