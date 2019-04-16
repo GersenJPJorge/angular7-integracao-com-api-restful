@@ -1,19 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListagemComponent } from './components/listagem/listagem.component';
-import { LancamentoComponent, FuncionarioComponent } from './components';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule, MatButtonModule, MatListModule, MatTooltipModule, MatIconModule, MatSnackBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatCardModule } from '@angular/material';
-import { HttpUtilService, LancamentoService } from '../shared';
+
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatListModule,
+  MatTooltipModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatCardModule,
+  MatPaginatorIntl
+} from '@angular/material';
+
+import { 
+	ListagemComponent, 
+	LancamentoComponent,
+	FuncionarioComponent 
+} from './components';
+
+import { 
+  HttpUtilService, 
+  LancamentoService,
+  PtBrMatPaginatorIntl
+} from '../shared';
 
 @NgModule({
-  declarations: [
-    ListagemComponent, 
-    LancamentoComponent,
-    FuncionarioComponent,
-  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -28,12 +45,23 @@ import { HttpUtilService, LancamentoService } from '../shared';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCardModule,
-    
+    MatCardModule
+  ],
+  declarations: [
+  	ListagemComponent, 
+  	LancamentoComponent,
+  	FuncionarioComponent
   ],
   providers: [
-    HttpUtilService,
+    HttpUtilService, 
     LancamentoService,
-  ],
+    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
+  ]
 })
 export class FuncionarioModule { }
+
+
+
+
+
+
