@@ -47,4 +47,23 @@ export class LancamentoService {
     );
   }
 
+
+  listarLancamentosPorFuncionario(
+    funcionarioId: string,
+    pagina: number, 
+    ordem: string,                         // por data ou tipo
+    direcao: string): Observable<any> {    // ascendente ou descendente
+
+  const url: string = env.baseApiUrl + this.PATH + 
+    this.PATH_LANCAMENTOS.replace('{funcionarioId}', funcionarioId);
+    // PATH_LANCAMENTOS = '/funcionario/{funcionarioId}';
+  
+  const params: string = '?pag=' + pagina +    
+   // ?pag é um query parameter, que são parametros adicionais passados para a url  
+    '&ord=' + ordem + '&dir=' + direcao;  // definições da api
+  
+  return this.http.get(url + params, this.httpUtil.headers());
+}
+
+
 }
