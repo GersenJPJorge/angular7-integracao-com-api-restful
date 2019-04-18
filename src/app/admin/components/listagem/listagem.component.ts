@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { 
@@ -18,7 +18,8 @@ import {
   Lancamento,
   Funcionario,
   Tipo,
-  HttpUtilService
+  HttpUtilService,
+  FuncionarioService
 } from '../../../shared';
 
 @Component({
@@ -41,7 +42,9 @@ export class ListagemComponent implements OnInit {
   	private lancamentoService: LancamentoService,
     private httpUtil: HttpUtilService,
     private snackBar: MatSnackBar,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private funcionarioService: FuncionarioService,
+    ) { }
 
   ngOnInit() {
     this.pagina = 0;
