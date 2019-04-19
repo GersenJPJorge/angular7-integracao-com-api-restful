@@ -30,7 +30,7 @@ import {
   HttpUtilService, 
   LancamentoService,
   PtBrMatPaginatorIntl,       // tradução da paginação
-  FuncionarioService
+  FuncionarioService,
 } from '../shared';
 
 import { 
