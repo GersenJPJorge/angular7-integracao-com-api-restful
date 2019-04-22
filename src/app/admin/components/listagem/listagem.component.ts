@@ -54,7 +54,7 @@ export class ListagemComponent implements OnInit {
   ngOnInit() {
     this.pagina = 0;
     this.ordemPadrao(); // é um método
-    this.exibirLancamentos(); // é um método
+    this.obterFuncionarios(); // é um método
     this.gerarForm();
   }
 

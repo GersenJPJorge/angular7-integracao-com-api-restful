@@ -1,12 +1,12 @@
-<form [formGroup]='form' novalidate>
+<form [formGroup]="form" novalidate>
   <mat-form-field>
-    <mat-select placeholder='Funcionários'
-      formControlName='funcs'
-      [(value)]='funcionarioId'
-      (selectionChange)='exibirLancamentos()'>
+    <mat-select placeholder="Funcionários"
+      formControlName="funcs"
+      [(value)]="funcionarioId"
+      (selectionChange)="exibirLancamentos()">
       <mat-option 
-        *ngFor='let funcionario of funcionarios' 
-        [value]='funcionario.id'>
+        *ngFor="let funcionario of funcionarios" 
+        [value]="funcionario.id">
         {{ funcionario.nome }}
       </mat-option>
     </mat-select>
