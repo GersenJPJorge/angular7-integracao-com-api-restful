@@ -73,9 +73,8 @@ export class ListagemComponent implements OnInit {
 
   get funcId(): string {  // armazeando o funcionário selecionado na sessionstorage
                           // caso eu avance e volte - para não perder o contéudo do último lido
-    return sessionStorage['funcionarioId'] || false;
+    return sessionStorage['funcionarioId'] || false;  // sessionStorage - memoria do navegador (cache para melhorar a usabilidade)
   }
-
 
   obterFuncionarios() {
     this.funcionarioService.listarFuncionariosPorEmpresa()
@@ -126,8 +125,32 @@ export class ListagemComponent implements OnInit {
       );
   }
 
+
+  removerDialog(lancamentoId: string) {  
+    const dialog = this.dialog.open(ConfirmarDialog, {});   // abrea a janela de confirmação (componente no final desse módulo)
+    dialog.afterClosed().subscribe(remover => {
+      if (remover) {                        // o dialog retorna true ou false
+        this.remover(lancamentoId);
+      }
+    });
+  }
+
   remover(lancamentoId: string) {
-    alert(lancamentoId);
+    this.lancamentoService.remover(lancamentoId)
+      .subscribe(
+        data => {
+          const msg: string = "Lançamento removido com sucesso!";
+          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          this.exibirLancamentos();
+        },
+        err => {
+          let msg: string = "Tente novamente em instantes.";
+          if (err.status == 400) {
+            msg = err.error.errors.join(' ');
+          }
+          this.snackBar.open(msg, "Erro", { duration: 5000 });
+        }
+      );
   }
 
   paginar(pageEvent: PageEvent) {
@@ -149,6 +172,27 @@ export class ListagemComponent implements OnInit {
   }
 
 }
+
+
+
+@Component({                                       // template padrão do angular-material
+  selector: 'confirmar-dialog',
+  template: `
+    <h1 mat-dialog-title>Deseja realmente remover o lançamento?</h1>
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false" tabindex="-1">
+        Não
+      </button>
+      <button mat-button [mat-dialog-close]="true" tabindex="2">
+        Sim
+      </button>
+    </div>
+  `,
+})
+export class ConfirmarDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+}
+
 
 
 

@@ -47,7 +47,6 @@ export class LancamentoService {
     );
   }
 
-
   listarLancamentosPorFuncionario(
     funcionarioId: string,
     pagina: number, 
@@ -65,5 +64,12 @@ export class LancamentoService {
   return this.http.get(url + params, this.httpUtil.headers());
 }
 
+remover(lancamentoId: string): Observable<any> {
+  return this.http.delete(
+      env.baseApiUrl + this.PATH + '/' + lancamentoId,
+      this.httpUtil.headers()           // para prover o token para validar a ação
+  );
+}
 
 }
+

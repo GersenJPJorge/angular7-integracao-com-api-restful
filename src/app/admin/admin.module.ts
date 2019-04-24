@@ -37,7 +37,8 @@ import {
 	ListagemComponent,
 	CadastroComponent,
 	AtualizacaoComponent,
-  AdminComponent
+  AdminComponent,
+  ConfirmarDialog
 } from './components';
 
 @NgModule({
@@ -67,7 +68,8 @@ import {
   	ListagemComponent, 
   	CadastroComponent, 
   	AtualizacaoComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmarDialog,
   ],
   providers: [
     LancamentoService,
@@ -77,6 +79,7 @@ import {
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, // calendario para obter a data
     { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
   ],
+  entryComponents: [ConfirmarDialog],    // chamada sem explicitar uma tag html
 })
 export class AdminModule { }
 
