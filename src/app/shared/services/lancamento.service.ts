@@ -71,5 +71,23 @@ remover(lancamentoId: string): Observable<any> {
   );
 }
 
+buscarPorId(lancamentoId: string): Observable<any> {
+  return this.http.get(
+      env.baseApiUrl + this.PATH + '/' + lancamentoId,
+      this.httpUtil.headers()                                // para popular o token
+  );
+}
+
+
+atualizar(lancamento: Lancamento): Observable<any> {  // recebe o objeto lançamento
+  return this.http.put(  // atualização de dados
+      env.baseApiUrl + this.PATH + '/' + lancamento.id, 
+      lancamento,
+      this.httpUtil.headers()  // acrescentando o token na requisição
+  );
+}
+
+
+
 }
 
