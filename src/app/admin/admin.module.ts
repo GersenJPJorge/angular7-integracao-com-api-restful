@@ -40,6 +40,7 @@ import {
   AdminComponent,
   ConfirmarDialog
 } from './components';
+import { AdminGuard } from './services';
 
 @NgModule({
   imports: [
@@ -76,6 +77,7 @@ import {
     HttpUtilService,
     MatPaginatorIntl,
     FuncionarioService,
+    AdminGuard,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, // calendario para obter a data
     { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
   ],

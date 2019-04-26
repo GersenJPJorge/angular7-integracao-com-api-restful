@@ -44,7 +44,16 @@ export class HttpUtilService {
      // o token vem em 3 partes(0 ,1, 2) ,e a segunda(1) é que nos interessa
      // o json.parse transforma em objeto
   }
-	
+  
+
+  obterPerfil(): string {
+    if (!localStorage['token']) {
+      return '';
+    }
+    const dadosUsuario = this.obterDadosUsuario();
+    return dadosUsuario ? dadosUsuario.role : ''; // role-usuario ou role-admin - com essa informação é possível criar o guard.
+  }  
+
 }
 
 

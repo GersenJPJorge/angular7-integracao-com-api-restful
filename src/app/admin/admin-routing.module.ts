@@ -7,11 +7,13 @@ import {
 	ListagemComponent,
 	AdminComponent
 } from './components';
+import { AdminGuard } from './services';
 
 export const AdminRoutes: Routes = [
 	{
 		path: 'admin',
 		component: AdminComponent,
+		canActivate: [AdminGuard],  // como é array pode-se acrescenta múltiplos guards para uma mesma rota
 		children: [
 		  {
 			path: '', 
