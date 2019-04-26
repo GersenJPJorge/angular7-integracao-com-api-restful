@@ -5,8 +5,11 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080/',                          // parte de autenticação
-  baseApiUrl: 'http://localhost:8080/api/'                   // demais endpoints
-
+  baseApiUrl: 'http://localhost:4200/api/'
+              // todas as requisições serão direcionadas para a porta 4200 e
+              // quando o node identificar o '/api'(que está no arquivo proxy.conf.json)
+              // ele vai redirecionar para nossa aapi restfull
+              
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
